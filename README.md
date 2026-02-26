@@ -1,1 +1,1 @@
-# lab-cpp
+# lab1-cpp
