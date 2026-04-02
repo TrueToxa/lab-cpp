@@ -16,7 +16,7 @@ using std::string;
 #endif
 // Задаем M - кол-во повторений для усреднения
 #ifndef M
-#define M 20
+#define M 10
 #endif
 // Задаем K - кол-во повторений для усреднения одного измерения 
 // (затем в коде нормируем на размер массива, чтобы быстрее работало)
@@ -60,8 +60,8 @@ void time_test (int ns[],
 
 /*****************************************************************************************************/
 int main() {
-    int ns[8] = {314, 1000, 3141, 10000, 31415, 100000, 314159, 1000000}; // измеряемые длины массивов
-    int size_ns = 8;
+    int ns[6] = {314, 1000, 3141, 10000, 31415, 100000}; // измеряемые длины массивов
+    int size_ns = 6;
     unsigned seed = 52;
 
     // поиск числа
@@ -73,22 +73,25 @@ int main() {
     // time_test_find_pair_with_sum_in_sorted_array(ns, size_ns, M, seed);
     
     //1
-    time_test (ns, size_ns, M, seed, find_O, true, true, "O11.csv");
+    
     time_test (ns, size_ns, M, seed, find_A, true, true, "A11.csv");
     time_test (ns, size_ns, M, seed, find_B, true, true, "B11.csv");
     time_test (ns, size_ns, M, seed, find_C, true, true, "C11.csv");
+    time_test (ns, size_ns, M, seed, find_O, true, true, "O11.csv");
 
     //2
-    time_test (ns, size_ns, M, seed, find_O, true, false, "O10.csv");
+    
     time_test (ns, size_ns, M, seed, find_A, true, false, "A10.csv");
     time_test (ns, size_ns, M, seed, find_B, true, false, "B10.csv");
     time_test (ns, size_ns, M, seed, find_C, true, false, "C10.csv");
+    time_test (ns, size_ns, M, seed, find_O, true, false, "O10.csv");
 
     //3
-    time_test (ns, size_ns, M, seed, find_O, false, true, "O01.csv");
+    
     time_test (ns, size_ns, M, seed, find_A, false, true, "A01.csv");
     time_test (ns, size_ns, M, seed, find_B, false, true, "B01.csv");
     time_test (ns, size_ns, M, seed, find_C, false, true, "C01.csv");
+    time_test (ns, size_ns, M, seed, find_O, false, true, "O01.csv");
 
     //false, false - возвращает равномерное распределение запросов по данным
     return 0;
