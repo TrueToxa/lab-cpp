@@ -43,6 +43,7 @@ int main()
         fill_random(arr, n, rng);
         backward_step(arr, 0, 4);
         print_arr(arr, 5);
+        // assert()
     }
 
     {
