@@ -183,17 +183,18 @@ float analytic_mean(float T)
 }
 
 int test(unsigned N = 1000,
-         float T = 300.f,
-         float inf = 1000.f,
+         float T = 300,
+         float inf = 1000,
          int precision = 7)
 {
 
     cout << setprecision(precision) << scientific;
+    cout << "analytical:        " << analytic_mean(T) << endl;
     cout << "naive:             " << mean_velocity(N, T, inf) << endl;
     cout << "half recursion:    " << mean_velocity_half_recursion(N, T, inf) << endl;
     cout << "double step:       " << mean_velocity_double_step(N, T, inf) << endl;
     cout << "kahan:             " << mean_velocity_kahan(N, T, inf) << endl;
-    cout << "analytical:        " << analytic_mean(T) << endl;
+    
 
     return 0;
 }
@@ -221,7 +222,6 @@ int test_to_csv(float T, unsigned N, float inf, bool header = false, int precisi
 }
 int main()
 {
-    // test();
     test_to_csv(1e-1, 1e1, 1e2, true, 7);
     test_to_csv(1e-1, 1e2, 1e2, false, 7);
     test_to_csv(1e-1, 1e3, 1e2, false, 7);
@@ -242,5 +242,8 @@ int main()
     test_to_csv(1e4, 1e3, 1e3, false, 7);
     test_to_csv(1e4, 1e4, 1e3, false, 7);
     test_to_csv(1e4, 1e5, 1e3, false, 7);
+
+    // test();
+
     return 0;
 }
