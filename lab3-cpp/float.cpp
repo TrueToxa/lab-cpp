@@ -243,7 +243,7 @@ int main()
     test_to_csv(1e4, 1e4, 1e3, false, 7);
     test_to_csv(1e4, 1e5, 1e3, false, 7);
 
-    // test();
+    test();
 
     return 0;
 }
