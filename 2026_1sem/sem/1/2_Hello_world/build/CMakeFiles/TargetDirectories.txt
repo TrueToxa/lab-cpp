@@ -1,0 +1,3 @@
+C:/Users/anton/Desktop/Prog_sem/C++/2026_1sem/1sem/2_Hello_world/build/CMakeFiles/HelloWorldProjectMain.dir
+C:/Users/anton/Desktop/Prog_sem/C++/2026_1sem/1sem/2_Hello_world/build/CMakeFiles/edit_cache.dir
+C:/Users/anton/Desktop/Prog_sem/C++/2026_1sem/1sem/2_Hello_world/build/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,10 @@
+{
+    "editor.renderWhitespace": "all",
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000,
+    "C_Cpp.default.compilerPath": "C:/msys64/ucrt64/bin/g++.exe",
+    "terminal.integrated.env.windows": {
+    "PATH": "${env:PATH};C:\\msys64\\ucrt64\\bin"  // измените на ваш путь к g++
+    },
+    "C_Cpp.errorSquiggles": "disabled",
+}

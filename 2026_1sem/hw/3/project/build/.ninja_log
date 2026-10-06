@@ -1,0 +1,10 @@
+# ninja log v7
+28	82	8119003011644972	CMakeFiles/VEC3.dir/src/ivec.cpp.obj	840dea1f2e995a0b
+18	294	8119017396949090	CMakeFiles/VEC3.dir/main.cpp.obj	20f6fea3aab51252
+19	296	8119014182550656	CMakeFiles/VEC3.dir/src/vec3.cpp.obj	313880173ac1bdc2
+294	397	8119017399730757	C:/Users/anton/Desktop/Prog_sem/C++/2026_1sem/hw/3/project/bin/VEC3.exe	ee9737fbdf43f18d
+83	863	8120568185640497	CMakeFiles/VEC3.dir/main.cpp.obj	20f6fea3aab51252
+95	898	8120568185791935	CMakeFiles/VEC3.dir/src/vec3.cpp.obj	313880173ac1bdc2
+35	615	8120568684854992	CMakeFiles/VEC3.dir/main.cpp.obj	20f6fea3aab51252
+49	620	8120568685037777	CMakeFiles/VEC3.dir/src/vec3.cpp.obj	313880173ac1bdc2
+621	815	8120568690759312	C:/Users/anton/Desktop/Prog_sem/C++/2026_1sem/hw/3/project/bin/VEC3.exe	ee9737fbdf43f18d

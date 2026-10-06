@@ -1,0 +1,39 @@
+2 типа файлов:
+- header
+    - h
+    - hh
+    - hpp
+- realize
+    - c
+    - cc
+    - cpp
+    
+    Для gcc, g++
+
+Forward declaration
+
+main.cpp
+func.hh
+
+func.hh
+define
+
+func.cc
+header
+
+objdump
+
+```
+PS C:\Users\anton\Desktop\Prog_sem\C++\2026_1sem\1sem> objdump -D .\func.cc > func.S
+C:\msys64\ucrt64\bin\objdump.exe: .\func.cc: file format not recognized
+PS C:\Users\anton\Desktop\Prog_sem\C++\2026_1sem\1sem> g++ .\1.cpp -c               
+PS C:\Users\anton\Desktop\Prog_sem\C++\2026_1sem\1sem> g++ .\1.o .\func.o
+PS C:\Users\anton\Desktop\Prog_sem\C++\2026_1sem\1sem> .\a.exe
+Hello, wold!
+PS C:\Users\anton\Desktop\Prog_sem\C++\2026_1sem\1sem> 
+```
+---
+
+make
+cmake
+(linger и еще что-то)
