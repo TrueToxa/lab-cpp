@@ -3,8 +3,11 @@
 #include <fstream>
 #include <string>
 
+//? как в наследовании применяется dynamic_cast, reinterprent_cast, static_cast ?
+
 template<typename T> T max(T lha, T rha);
 template<typename T> T min(T lha, T rha);
+
 //**************************
 class Interface {
 public:
@@ -109,7 +112,7 @@ private:
 
 class DoubleDice : public PenaltyDice, public BonusDice {
 public:
-    DoubleDice(Interface& dice) : PenaltyDice(dice, dice), BonusDice(dice, dice)
+    DoubleDice(Interface& dice) : PenaltyDice(dice, dice), BonusDice(dice, dice) 
     {}
 
     unsigned roll() override {
@@ -198,22 +201,55 @@ int main() {
 
     dice_distribution(*penalty, k, "penalty");
     dice_distribution(*bonus, k, "bonus");
-    dice_distribution(*penalty, 1e6, "csv/penalty", true);
-    dice_distribution(*bonus, 1e6, "csv/bonus", true);
+    // dice_distribution(*penalty, 1e6, "csv/penalty", true);
+    // dice_distribution(*bonus, 1e6, "csv/bonus", true);
 
     //task 2
     Interface* dice100 = new Dice(100, 52);
     Interface* bonus100 = new BonusDice(*dice100, *dice100);
     Interface* penalty100 = new PenaltyDice(*dice100, *dice100);
-    dice_distribution(*dice3, 1e6, "csv/threedice6", true);
-    dice_distribution(*bonus100, 1e6, "csv/bonus100", true);
-    dice_distribution(*penalty100, 1e6, "csv/penalty100", true);
+    // dice_distribution(*dice3, 1e6, "csv/threedice6", true);
+    // dice_distribution(*bonus100, 1e6, "csv/bonus100", true);
+    // dice_distribution(*penalty100, 1e6, "csv/penalty100", true);
 
     //task 3
     Interface* dice2 = new DoubleDice(*dice100);
     std::cout << "DoubleDice, <p>=" << expected_value(*dice2, 1e6) << std::endl;
-    dice_distribution(*dice2, 1e6, "csv/dice2", true);
+    // dice_distribution(*dice2, 1e6, "csv/dice2", true);
 
+
+    //additional task
+    /*продемонстрировать использование различных cast'ов для 
+    (множественного наследования, полиморфизма и др.) концепций в задании*/
+    /*по данному материалу
+    https://lms.mipt.ru/pluginfile.php/294140/mod_resource/content/3/03-%D0%9E%D0%9E%D0%9F%20%D1%87%D0%B0%D1%81%D1%82%D1%8C%20III.pdf*/
+    FairDice* dicef = new FairDice();
+    auto reinterpret_dice_I = reinterpret_cast<Interface*>(dicef); 
+    auto reinterpret_dice_F = reinterpret_cast<FairDice*>(reinterpret_dice_I); // ненорм
+    auto reinterpret_dice_U = reinterpret_cast<UnfairDice*>(reinterpret_dice_I); //ненорм
+    std::cout << "reinterpret_dice_I:" << (reinterpret_dice_I == nullptr) << std::endl;
+    std::cout << "reinterpret_dice_F:" << (reinterpret_dice_F == dicef) << std::endl;
+    std::cout << "reinterpret_dice_U" << (reinterpret_dice_U == nullptr) << std::endl;
+
+    auto dynamic_dice_I = dynamic_cast<Interface*>(dicef);
+    auto dynamic_dice_F = dynamic_cast<FairDice*>(dynamic_dice_I); //норм
+    auto dynamic_dice_U = dynamic_cast<UnfairDice*>(dynamic_dice_I); //nullptr
+    std::cout << "dynamic_dice_I:" << (dynamic_dice_I == nullptr) << std::endl;
+    std::cout << "dynamic_dice_F:" << (dynamic_dice_F == dicef) << std::endl;
+    std::cout << "dynamic_dice_U:" << (dynamic_dice_U == nullptr) << std::endl;
+
+    Interface* inter_dice = static_cast<Interface*>(dicef);
+    auto inter_dice_F = dynamic_cast<FairDice*>(inter_dice); // норм
+    delete dicef;
+    /*вывод:
+    DoubleDice, <p>=100.989
+    reinterpret_dice_I:0
+    reinterpret_dice_F:1
+    reinterpret_dice_U0
+    dynamic_dice_I:0
+    dynamic_dice_F:1
+    dynamic_dice_U:1
+    */
 
     delete fair;
     delete unfair;
@@ -228,6 +264,7 @@ int main() {
 }
 
 /*
+вывод при выполнении до //additional task
 1 1 11 2 2 0
 1 3.50472 10.5021 4.47628 2.53288 0
 penalty
