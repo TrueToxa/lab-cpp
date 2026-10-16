@@ -224,8 +224,8 @@ int main() {
     /*по данному материалу
     https://lms.mipt.ru/pluginfile.php/294140/mod_resource/content/3/03-%D0%9E%D0%9E%D0%9F%20%D1%87%D0%B0%D1%81%D1%82%D1%8C%20III.pdf*/
     FairDice* dicef = new FairDice();
-    auto reinterpret_dice_I = reinterpret_cast<Interface*>(dicef); 
-    auto reinterpret_dice_F = reinterpret_cast<FairDice*>(reinterpret_dice_I); // ненорм
+    auto reinterpret_dice_I = reinterpret_cast<Interface*>(dicef);  //ненорм
+    auto reinterpret_dice_F = reinterpret_cast<FairDice*>(reinterpret_dice_I); // норм если например из unsigned_char
     auto reinterpret_dice_U = reinterpret_cast<UnfairDice*>(reinterpret_dice_I); //ненорм
     std::cout << "reinterpret_dice_I:" << (reinterpret_dice_I == nullptr) << std::endl;
     std::cout << "reinterpret_dice_F:" << (reinterpret_dice_F == dicef) << std::endl;
@@ -239,7 +239,7 @@ int main() {
     std::cout << "dynamic_dice_U:" << (dynamic_dice_U == nullptr) << std::endl;
 
     Interface* inter_dice = static_cast<Interface*>(dicef);
-    auto inter_dice_F = dynamic_cast<FairDice*>(inter_dice); // норм
+    auto inter_dice_F = static_cast<FairDice*>(inter_dice); // норм
     delete dicef;
     /*вывод:
     DoubleDice, <p>=100.989
