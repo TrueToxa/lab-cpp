@@ -19,6 +19,7 @@ public:
         m_size = other.m_size;
         // other.m_ptr = nullptr;
         // other m_size = 0; 
+        return *this;
     }
 
     void print_ptr_adress() const {
