@@ -90,7 +90,7 @@ public:
     }
 };
 
-/*****************************8 */
+/******************************/
 template <typename T, unsigned n>
 class NGrid final {
 public:
