@@ -30,11 +30,11 @@ int main() {
         std::cout << "NGrid" << std::endl;
         NGrid<float, 4> g4(1, 2, 6, 7, 3.14);
         std::cout << "ok1" << std::endl;
-        // NGrid<float, 2> g2(6, 7, 2.71);
-        // std::cout << "ok2" << std::endl;
-        // // g4[0][0] = g2;
-        // std::cout << "ok3" << std::endl;
-        // std::cout << g4(0, 0, 3, 4) << g4(0, 1, 5, 6) << std::endl;
+        NGrid<float, 2> g2(6, 7, 2.71);
+        std::cout << "ok2" << std::endl;
+        // g4[0][0] = g2;
+        std::cout << "ok3" << std::endl;
+        std::cout << g4(0, 0, 3, 4) << g4(0, 1, 5, 6) << std::endl;
     }
     // {//тест из задания
     //     NGrid<float, 3> const g3(2, 3, 4, 1.0f);

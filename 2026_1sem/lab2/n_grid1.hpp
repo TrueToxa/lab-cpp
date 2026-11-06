@@ -33,7 +33,7 @@ public:
 
     // 1. RAII Правило пяти 
     //Копирующий конструктор
-    NGrid(NGrid<T, 1> const& other) : x_size(other.x_size), data(new T[other.x_size]) {
+    NGrid(NGrid<T, 1> const& other) : x_size(other.x_size), data(operator new(sizeof(T)*x_size)) {
         for (size_type x_idx = 0; x_idx < x_size; x_idx++) {
             data[x_idx] = other.data[x_idx];
         }
@@ -160,7 +160,6 @@ public:
         for (size_type y_idx = 0; y_idx < y_size; y_idx++) {
             delete data[y_idx];
         }
-            delete[] data;
         delete[] data;
     }
 
