@@ -72,8 +72,9 @@ public:
     }
 
     NGrid<T, 1>& operator=(T const& t) {
-        for (auto it = data, end = data + x_size; it != end; ++it)
-            *it = t;
+        for (sizetype idx= 0; idx < y_ize; idx++) {
+            data[idx] = t;
+        }
         return *this;
     }
 
@@ -90,7 +91,7 @@ public:
     }
 };
 
-/******************************/
+/*****************************8 */
 template <typename T, unsigned n>
 class NGrid final {
 public:

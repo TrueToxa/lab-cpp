@@ -1,13 +1,14 @@
 #include <iostream>
 #include <utility>
 
+
 template <typename T>
 class Grid final {
 public:
     using value_type = T;
     using size_type = unsigned;
 private:
-    T* data;
+    T* const data;
     size_type y_size, x_size;
 public:
     Grid(T* data, size_type y_size, size_type x_size) :
