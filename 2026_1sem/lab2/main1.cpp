@@ -2,9 +2,9 @@
 // #include "grid1.hpp"
 #include "n_grid1.hpp"
 
-// #define _CRTDBG_MAP_ALLOC
-// #include <stdlib.h>
-// #include <crtdbg.h>
+#define _CRTDBG_MAP_ALLOC
+#include <stdlib.h>
+#include <crtdbg.h>
 
 
 int main() {
@@ -36,17 +36,17 @@ int main() {
         std::cout << "ok3" << std::endl;
         std::cout << g4(0, 0, 3, 4) << g4(0, 1, 5, 6) << std::endl;
     }
-    // {//тест из задания
-    //     NGrid<float, 3> const g3(2, 3, 4, 1.0f);
-    //     assert(1.0f == g3(1, 1, 1));
-    //     NGrid<float, 2> g2(2, 5, 2.0f);
-    //     assert(2.0f == g2(1, 1));
-    //     g2 = g3[1];
-    //     assert(1.0f == g2(1, 1));
-    // }
+    {//тест из задания
+        // NGrid<float, 3> const g3(2, 3, 4, 1.0f);
+        // assert(1.0f == g3(1, 1, 1));
+        // NGrid<float, 2> g2(2, 5, 2.0f);
+        // assert(2.0f == g2(1, 1));
+        // g2 = g3[1];
+        // assert(1.0f == g2(1, 1));
+    }
     std::cout << "OK" << std::endl;
-
-    // _CrtSetReportMode(_CRT_WARN, _CRTDBG_MODE_DEBUG);
-    // _CrtDumpMemoryLeaks();
+    double* ptr = new double(10);
+    _CrtSetReportMode(_CRT_WARN, _CRTDBG_MODE_DEBUG);
+    _CrtDumpMemoryLeaks();
     return 0;
 }
