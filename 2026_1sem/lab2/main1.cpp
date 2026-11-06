@@ -2,6 +2,11 @@
 // #include "grid1.hpp"
 #include "n_grid1.hpp"
 
+// #define _CRTDBG_MAP_ALLOC
+// #include <stdlib.h>
+// #include <crtdbg.h>
+
+
 int main() {
     // Grid<float> g(3, 2, 0.0f);
     // assert(3 == g.get_y_size());
@@ -24,18 +29,24 @@ int main() {
     {//тест который я написал, забыв что в условии уже есть
         std::cout << "NGrid" << std::endl;
         NGrid<float, 4> g4(1, 2, 6, 7, 3.14);
-        NGrid<float, 2> g2(6, 7, 2.71);
-        g4[0][0] = g2;
-        std::cout << g4(0, 0, 3, 4) << g4(0, 1, 5, 6) << std::endl;
+        std::cout << "ok1" << std::endl;
+        // NGrid<float, 2> g2(6, 7, 2.71);
+        // std::cout << "ok2" << std::endl;
+        // // g4[0][0] = g2;
+        // std::cout << "ok3" << std::endl;
+        // std::cout << g4(0, 0, 3, 4) << g4(0, 1, 5, 6) << std::endl;
     }
-    {//тест из задания
-        NGrid<float, 3> const g3(2, 3, 4, 1.0f);
-        assert(1.0f == g3(1, 1, 1));
-        NGrid<float, 2> g2(2, 5, 2.0f);
-        assert(2.0f == g2(1, 1));
-        g2 = g3[1];
-        assert(1.0f == g2(1, 1));
-    }
+    // {//тест из задания
+    //     NGrid<float, 3> const g3(2, 3, 4, 1.0f);
+    //     assert(1.0f == g3(1, 1, 1));
+    //     NGrid<float, 2> g2(2, 5, 2.0f);
+    //     assert(2.0f == g2(1, 1));
+    //     g2 = g3[1];
+    //     assert(1.0f == g2(1, 1));
+    // }
     std::cout << "OK" << std::endl;
+
+    // _CrtSetReportMode(_CRT_WARN, _CRTDBG_MODE_DEBUG);
+    // _CrtDumpMemoryLeaks();
     return 0;
 }

@@ -60,12 +60,11 @@ public:
     //И, наконец, десттруктор Ж)
     ~NGrid() {
         // delete[] data;
-        // for (size_type y_idx = 0; y_idx < y_size; y_idx++) {
-            for (size_type x_idx = 0; x_idx < x_size; x_idx++) {
-                data[x_idx].~T();
-            }
-        // }
-        delete[] data;
+        for (size_type x_idx = 0; x_idx < x_size; x_idx++) {
+            data[x_idx].~T();
+        }
+        // delete[] data;
+        operator delete(data);
     }
 
     T operator()(size_type x_idx) const {
@@ -152,14 +151,17 @@ public:
     }
     //И, наконец, десттруктор Ж)
     ~NGrid() {
-        if (data) {
-            for (size_type y_idx = 0; y_idx < y_size; y_idx++) {
-                data[y_idx].~T();
-                delete[] data[y_idx];
-            }
-            delete[] data;
+        // for (size_type y_idx = 0; y_idx < y_size; y_idx++) {
+        //     data[y_idx].~T();
+        //     // operator delete data[y_idx];
+        // }
+        // operator delete(data;
+        // y_size = 0;
+        for (size_type y_idx = 0; y_idx < y_size; y_idx++) {
+            delete data[y_idx];
         }
-        y_size = 0;
+            delete[] data;
+        delete[] data;
     }
 
     //оператор () - вызывается по рекусрии

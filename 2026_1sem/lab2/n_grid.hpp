@@ -153,7 +153,6 @@ public:
             }
             delete[] data;
         }
-        y_size = 0;
     }
 
     template <typename... Args>
