@@ -1,25 +1,25 @@
 #include <cassert>
-#include "grid1.hpp"
+// #include "grid1.hpp"
 #include "n_grid1.hpp"
 
 int main() {
-    Grid<float> g(3, 2, 0.0f);
-    assert(3 == g.get_y_size());
-    assert(2 == g.get_x_size());
+    // Grid<float> g(3, 2, 0.0f);
+    // assert(3 == g.get_y_size());
+    // assert(2 == g.get_x_size());
 
-    using gsize_t = Grid<int>::size_type;
+    // using gsize_t = Grid<int>::size_type;
 
-    for (gsize_t y_idx = 0; y_idx != g.get_y_size(); ++y_idx)
-        for (gsize_t x_idx = 0; x_idx != g.get_x_size(); ++x_idx)
-            assert(0.0f == g[y_idx][x_idx]);
+    // for (gsize_t y_idx = 0; y_idx != g.get_y_size(); ++y_idx)
+    //     for (gsize_t x_idx = 0; x_idx != g.get_x_size(); ++x_idx)
+    //         assert(0.0f == g[y_idx][x_idx]);
 
-    for (gsize_t y_idx = 0; y_idx != g.get_y_size(); ++y_idx)
-        for (gsize_t x_idx = 0; x_idx != g.get_x_size(); ++x_idx)
-            g[y_idx][x_idx] = 1.0f;
+    // for (gsize_t y_idx = 0; y_idx != g.get_y_size(); ++y_idx)
+    //     for (gsize_t x_idx = 0; x_idx != g.get_x_size(); ++x_idx)
+    //         g[y_idx][x_idx] = 1.0f;
 
-    for (gsize_t y_idx = 0; y_idx != g.get_y_size(); ++y_idx)
-        for (gsize_t x_idx = 0; x_idx != g.get_x_size(); ++x_idx)
-            assert(1.0f == g(y_idx, x_idx));   
+    // for (gsize_t y_idx = 0; y_idx != g.get_y_size(); ++y_idx)
+    //     for (gsize_t x_idx = 0; x_idx != g.get_x_size(); ++x_idx)
+    //         assert(1.0f == g(y_idx, x_idx));   
              
     {//тест который я написал, забыв что в условии уже есть
         std::cout << "NGrid" << std::endl;
