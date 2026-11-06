@@ -154,6 +154,7 @@ public:
     ~NGrid() {
         if (data) {
             for (size_type y_idx = 0; y_idx < y_size; y_idx++) {
+                data[y_idx].~T();
                 delete[] data[y_idx];
             }
             delete[] data;
